@@ -1,8 +1,9 @@
 import express from "express"
+import dotenv from "dotenv"
+dotenv.config();
 import morgan from "morgan"
 import helmet from "helmet"
 import cors from "cors"
-import dotenv from "dotenv"
 import authRoutes from "@/routes/auth.routes"
 import productRoutes from "@/routes/product.route"
 import cartRoutes from "@/routes/cart.routes"
@@ -14,7 +15,7 @@ import swaggerUi from "swagger-ui-express";
 import { swaggerSpec } from "@/config/swagger";
 
 
-dotenv.config();
+
 
 const app = express();
 

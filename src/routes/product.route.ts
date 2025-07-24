@@ -10,12 +10,17 @@ import { authenticate, authorize } from "@/middlewares/auth.middleware";
 
 const router = express.Router();
 
+router.use(authenticate);
+
+
 /**
  * @swagger
  * /api/products:
  *   get:
  *     summary: Get all products
  *     tags: [Products]
+ *     security:
+ *       - bearerAuth: []
  *     responses:
  *       200:
  *         description: List of products
@@ -28,6 +33,8 @@ router.get("/", getAllProducts);
  *   get:
  *     summary: Get a product by ID
  *     tags: [Products]
+ *      security:
+ *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: id
@@ -43,7 +50,6 @@ router.get("/", getAllProducts);
  */
 router.get("/:id", getProductById);
 
-router.use(authenticate);
 
 /**
  * @swagger

@@ -1,13 +1,13 @@
-import app from "@/app";
-import { handleStripeWebhook } from "@/controllers/webhook.controller";
+import express from "express";
+import { stripeWebhookHandler } from "@/controllers/webhook.controller";
 import { raw } from "express";
 
-const router = app.router;
+const router = express.Router();
 
 router.post(
   "/webhook",
   raw({ type: "application/json" }),
-  handleStripeWebhook
+  stripeWebhookHandler
 );
 
 export default router;
